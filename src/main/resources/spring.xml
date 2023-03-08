@@ -10,7 +10,7 @@
     <context:component-scan base-package="AnnotationsBased"></context:component-scan>
     <bean id="doctor" class="demo.XmlBased.Doctor">
         <constructor-arg value="MBBS"></constructor-arg>
-        <!--<property name="qualification" value="MBBS"></property>-->
+        <property name="qualification" value="MBBS"></property>
         <property name="nurse" ref="nurse"></property>
     </bean>
     <bean id="nurse" class="demo.XmlBased.Nurse"></bean>
