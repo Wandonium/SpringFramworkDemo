@@ -34,7 +34,7 @@ public class Coach implements Team, BeanNameAware {
     // Bean lifecycle method. Called before bean is instantiated for the first time..
     @Override
     public void setBeanName(String string) {
-        System.out.println("testing setBeanName method call...");
+        System.out.println("testing setBeanName lifecycle method call...");
     }
     
     @PostConstruct
