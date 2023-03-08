@@ -29,5 +29,8 @@ public class SpringFrameworkDemo {
         
         Staff nurse2 = context.getBean(Nurse.class);
         nurse2.assist();
+        
+        // Dependency injection of class instance variable:
+        System.out.println("doctor qualification: " + doctor.getQualification());
     }
 }
