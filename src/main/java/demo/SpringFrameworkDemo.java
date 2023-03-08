@@ -26,7 +26,27 @@ public class SpringFrameworkDemo {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         xmlBased(context);
         annotationsBased(context);
-        javaConfigBased();
+        
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
+        javaConfigBased(ctx);
+        
+        // Notice that the team name remains the same across both coach1 and coach2.
+        // This is because of the default Spring Singleton scope.
+        Coach coach1 = ctx.getBean(Coach.class);
+        coach1.setTeamName("Manchester United");
+        System.out.println(coach1);
+        
+        Coach coach2 = ctx.getBean(Coach.class);
+        System.out.println(coach2);
+        
+        // We can change the scope to prototype to generate a different object
+        // each time. Also make sure to the bean is a 'Component'.
+        Player player1 = ctx.getBean(Player.class);
+        player1.setTeamName("Marcus Rashford");
+        System.out.println(player1);
+        
+        Player player2 = ctx.getBean(Player.class);
+        System.out.println(player2);
         
     }
     
@@ -60,9 +80,8 @@ public class SpringFrameworkDemo {
         student.inSchool();
     }
     
-    public static void javaConfigBased() {
+    public static void javaConfigBased(ApplicationContext ctx) {
         // Make use of the Annotations context for Java based dependecy injection
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
         Team coach = ctx.getBean(Coach.class);
         coach.playing();
         
