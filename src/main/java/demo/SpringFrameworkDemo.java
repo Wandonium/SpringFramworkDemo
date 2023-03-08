@@ -1,5 +1,10 @@
-package com.wandonium.springframeworkdemo;
+package demo;
 
+import AnnotationsBased.School;
+import AnnotationsBased.Teacher;
+import demo.XmlBased.Doctor;
+import demo.XmlBased.Nurse;
+import demo.XmlBased.Staff;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -32,5 +37,9 @@ public class SpringFrameworkDemo {
         
         // Dependency injection of class instance variable:
         System.out.println("doctor qualification: " + doctor.getQualification());
+        
+        // Creating object using Spring's Annotations-based dependency injection.
+        School teacher = context.getBean(Teacher.class);
+        teacher.inSchool();
     }
 }

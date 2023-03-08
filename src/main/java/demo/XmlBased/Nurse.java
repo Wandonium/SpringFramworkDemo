@@ -1,4 +1,4 @@
-package com.wandonium.springframeworkdemo;
+package demo.XmlBased;
 
 /**
  *
